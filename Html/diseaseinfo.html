@@ -1,0 +1,54 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/dinfo.css' %}">
+
+<div class="container-fluid">
+    <div class="row" style="margin-top:8pc;">
+<h2 class="separator pt-2">Learn More About Diseases</h2>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">      
+        <div class="col-md-6 mt-4 img1">
+            <div class="row">
+                <div class="col-md-6"> 
+                    <img src="{% static 'image/1_18.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
+                </div>
+            <div class="col-md-6">
+                <img src="{% static 'image/3_19.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'image/3_25.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'image/4_7.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+            <h3 style="text-align: center;">{{disease.name}}</h3>
+            <p class="para">{{disease.description}}</p>
+            <h5 style="margin-left: 1pc;"> Symptoms:</h5 >
+            <p class="para"> {{disease.symptoms}}    
+            <ul style="margin-left: 3pc;">
+    
+            <!-- <li>Inflammatory (pruritus)</li>
+            <li>Depending on your skin tone, a rash on swollenskin will have a different color</li>
+            <li>Small, raised pimples on dark-skinned individuals</li>
+            <li>crusting and leaking</li>
+            <li>Thickened skin</li>
+            <li>the skin around the eyes becoming darker</li>
+            <li>Skin that is itchy and raw from rubbing</li> -->
+            </ul>
+            </p>
+        </div>
+        <h5 style="margin-left: 1pc; margin-top: 1pc;"> Causes:</h5 >
+        <p class="para  ml-3 mt-1 mr-3">{{disease.cause}}</p>
+    </div>
+</div>
+{% endblock %}

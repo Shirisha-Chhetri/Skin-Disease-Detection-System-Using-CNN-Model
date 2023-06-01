@@ -1,0 +1,145 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+   
+    <p class="profile">My Profile</p>
+      {% for message in messages %}
+      <div class="alert alert-info">
+          {{message}}
+      </div>
+      {% endfor %}
+
+    <div class="row">
+    <div class="col-md-4">
+     {% if img %}
+      <img class="human" src="{{img.image.url}}" alt="">
+      {% else %}
+      <img class="human" src="../media/user.png" alt="">
+      {% endif %}
+    </div>
+    
+
+    <div class="dropdown">
+      <button class="edit" type="button"><i class="fa fa-pen">&nbsp;Edit</i></button>
+      <div class="drop-content">
+        {% if img%}
+        <button type="button" class="btn btn-block" data-toggle="modal" data-target="#updateProfile">Update Profile</button>
+        {%else%}
+        <button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal1">Upload Photo</button>
+        {%endif%}
+        
+        <form  method="POST" action="/deleteimage/">
+          {% csrf_token %}           
+          <input type="submit" class="btn btn-block" value="Remove Profile" />                  
+        </form>
+      </div>
+    </div>
+        
+      <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">    
+        <h5 class="modal-title" id="exampleModalLabel">Add Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <form  method="POST" enctype="multipart/form-data" action="/updateprofile/">
+              {% csrf_token %}
+              <input type="file" name="profileimage" accept="image/*" required>           
+              <input type="submit" class="btn" value="Add profile"  style="background-color: #ebc4a1;"/>     
+                         
+            </form>
+          </div>
+          </div>     
+          </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="updateProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">    
+        <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <form  method="POST" enctype="multipart/form-data" action="/updateImage/">
+              {% csrf_token %}
+              <input type="file" name="updateimg" accept="image/*" required>           
+              <input type="submit" class="btn btn-info" value="Update profile"/>  
+                             
+            </form>
+          </div>
+        </div>     
+        </div>
+        </div>
+        </div>
+      
+    
+    <div class="col-md-8 mt-3">
+        {% if request.user.is_authenticated %} 
+          {% if not request.user.is_staff %} 
+          <div class="card ml-5" style="width: 30rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Name: </b>{{request.user.first_name}}  {{request.user.last_name}}</li>
+              <li class="list-group-item"><b>Username: </b> {{request.user.username}}</li>
+              <li class="list-group-item"><b>Email: </b> {{request.user.email}}</li>
+              <li class="list-group-item"><b>Date_Joined: </b> {{request.user.date_joined}}</li>
+              <li class="list-group-item"><b>Last-Login: </b> {{request.user.last_login}}</li>
+              <li class="list-group-item">
+                <input type="submit" class="btn add btn-block" data-toggle="modal" data-target="#exampleModal" value="Change Password" style="color:white;">
+              </li>
+            </ul>
+          </div>
+ 
+          {% endif %}
+        {% endif %}
+    </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-keyboard="false" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">    
+           <h5 class="modal-title" id="exampleModalLabel">Update Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            <div class="form-group">
+              <form  method="POST">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                  {% for error in form.non_field_errors %}
+                   <p>{{error}}</p> 
+                  {% endfor %}
+                {% endif %}
+          
+                {% for fm in form %}
+                  {{fm.label_tag}} {{fm}} 
+                  <div style="color:red;">
+                    {{fm.errors | striptags}}
+                  </div><br>
+                {% endfor %}
+                  
+                <input type="submit" id="submit" class="btn btn-info" value="Update" name="sub"/>                  
+              </form>
+            </div>
+          </div>     
+        </div>
+      </div>
+    </div>
+  
+{% endblock %}

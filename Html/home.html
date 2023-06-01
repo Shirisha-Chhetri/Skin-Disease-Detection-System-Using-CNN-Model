@@ -1,0 +1,55 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+  
+  <div class="row mt-3">
+      <img src="{% static 'image/image (4).png' %}" class="img"/>
+  </div>
+
+  <div class="row">
+    <p class="book">Know About Your Skin!!!</p>
+  </div>
+
+  <div id="sec5">
+    <div class="container-fluid">
+      <div class="row">
+        {% for disease in diseases %}
+        <div class="col-md-6">
+          <div class="detail">
+            <h3 style="text-align: center;">{{disease.name}}</h3>
+            <p class="details">{{disease.description}}</p>
+              <div class="d-grid mx-auto">
+                <button class="button" type="button"><a href="diseaseinfo/disease/{{disease.id}}">Read More ...</a></button>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">            
+            <img src="{{disease.images}}" class="image1" alt="...">
+            </div>
+        </div>   
+      
+      {% endfor %}
+    </div>    
+  </div>
+
+  <div class="container-fluid mt-2">
+    <div class="row centers">
+      <p class="assistance">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
+        <img src="{% static 'image/nepal.png' %}" class="logos"/>
+        <img src="{% static 'image/jebina.png' %}" class="logos"/>
+        <img src="{% static 'image/aesthetic.png' %}" class="logos"/>
+        <img src="{% static 'image/Lavana-logo.png' %}" class="logos"/>
+        <img src="{% static 'image/ktm.png' %}" class="logos"/>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <img src="{% static 'image/caretips.jpg' %}" class="caretips"/>
+</div>
+{% endblock %}

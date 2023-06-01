@@ -1,0 +1,88 @@
+{% load static %}  
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+
+    <div>
+      <img src="{% static 'image/login.svg' %}" class="background">
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header border-bottom-0">
+                <button type="button" class="close"  aria-label="Close">
+                  <a href="http://127.0.0.1:8000/">
+                  <span aria-hidden="true">&times; </span>
+                  </a>         
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-title text-center">
+                  <h4>Sign Up</h4>
+                </div>
+                <div class="d-flex flex-column text-center">
+                  <form class="sign needs-validation" method="POST" action="/signup/" name="sign" novalidate>
+                    {% csrf_token %}
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert"> 
+                      {{error}}
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                      <input type="text" style="border-radius: 2pc !important; border: 3px solid #ebc4a1 !important;
+                      margin-left: 2pc; margin-top: 1pc; width: 83%;" class="form-control tags" placeholder="Firstname..." name="first_name" onkeyup="RemoveSpecialChar(this)" pattern="^[a-zA-Z]+$" required>
+                      <div class="invalid-feedback">
+                        Please Enter Firstname
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text"style="border-radius: 2pc !important; border: 3px solid #ebc4a1 !important;
+                      margin-left: 2pc; margin-top: 1pc; width: 83%;"  class="form-control tags"  placeholder="Lastname..." name="last_name" onkeyup="RemoveSpecialChar(this)" pattern="^[a-zA-Z]+$" required>
+                      <div class="invalid-feedback">
+                        Please Enter Lastname
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text"  style="border-radius: 2pc !important; border: 3px solid #ebc4a1 !important;
+                      margin-left: 2pc; margin-top: 1pc; width: 83%;" class="form-control tags" placeholder="Username..." name="username" onkeyup="RemoveSpecialChar(this)" required>
+                      <div class="invalid-feedback">
+                        Please Write Username
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" style="border-radius: 2pc !important; border: 3px solid #ebc4a1 !important;
+                      margin-left: 2pc; margin-top: 1pc; width: 83%;"  class="form-control" placeholder="Email..." name="email" required>
+                      <div class="invalid-feedback">
+                        Please Enter Valid Email
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" style="border-radius: 2pc !important; border: 3px solid #ebc4a1 !important;
+                      margin-left: 2pc; margin-top: 1pc; width: 83%;"  class="form-control" id="pass" placeholder="Password..." name="password" required>
+                      <i class="fa fa-eye" id="togglePassword1"></i>
+                      <div class="invalid-feedback">
+                        Please Write Password
+                      </div>
+                    </div>
+                    <input type="submit" class="btn btn-block btn-round mt-4" value="Signup" style="width: 91%;
+                    margin-left: 1pc; background-color: ebc4a1; border-radius: 2pc; color: white;"/>
+                  </form>
+              </div>
+            </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <div class="signup-section">Already a member? <a href="../login" style="color: #ebc4a1;">Login</a></div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+  <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+  <script  src="{% static 'js/register.js' %}"></script> 

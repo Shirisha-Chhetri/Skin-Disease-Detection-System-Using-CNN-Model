@@ -1,0 +1,55 @@
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+
+    <div>
+        <img src="{% static 'image/back1.jpg' %}" class="background">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+       
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+            <button type="button" class="close"  aria-label="Close">
+                <a href="http://127.0.0.1:8000/">
+                <span aria-hidden="true">&times; </span>
+                </a>         
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-title text-center">
+            <h4>Enter New Password</h4>
+            <p>Please enter your new password twice so we can verify you typed it in correctly.</p>
+            </div>
+            <div class="d-flex flex-column text-center">
+            <form class="form" method="POST" action="" name="fill">     
+                     
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                  {% for error in form.non_field_errors %}
+                   <p>{{error}}</p> 
+                  {% endfor %}
+                {% endif %}
+          
+                {% for fm in form %}
+                  {{fm.label_tag}} {{fm}} 
+                  <div style="color:red;">
+                    {{fm.errors | striptags}}
+                  </div><br>
+                {% endfor %}
+                <input type="submit" class="btn btn-info btn-block btn-round mt-4" value="Set Password"/>
+            </form>
+            </div>
+        </div>  
+        </div>
+    </div>
+    </div>
+    </div>
+
+  <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script> 
+  <script  src="{% static 'js/script.js' %}"></script>

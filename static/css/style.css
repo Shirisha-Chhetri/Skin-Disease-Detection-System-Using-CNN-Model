@@ -1,0 +1,70 @@
+/* for login form */
+a:hover,a{
+    color: black;   
+}
+.background{
+    height: auto;
+    width: 100%;
+}
+.container {
+    padding: 2rem 0rem;
+}
+
+@media (min-width: 576px) {
+.modal-dialog {
+    max-width: 400px;
+}
+.modal-dialog .modal-content {
+    padding: 1rem;
+}
+}
+.modal-header .close {
+margin-top: -1.5rem;
+}
+
+/* .form-title {
+margin: 11rem 0rem 2rem;
+} */
+
+.btn-round {
+border-radius: 3rem !important;
+}
+
+.delimiter {
+padding: 1rem;
+}
+.signup-section {
+padding: 0.3rem 0rem;
+}
+#togglePassword1{
+    margin-left: 18pc;
+    margin-top: -1.8pc;
+}
+#togglePassword{
+    margin-left: 18pc;
+    margin-top: -1.8pc;
+}
+input{
+    border-radius: 2pc;
+}
+.form-control{
+    border-radius: 2pc !important;
+    border: 1px solid #ebc4a1 !important;
+    margin-left: 2pc;
+    margin-top: 1pc;
+}
+.text{
+    color: #ebc4a1 !important;
+}
+
+
+
+
+/* .log{
+    margin-top: 10pc;
+} */
+.tags{
+    width: 21pc;
+    border-radius: 2pc;
+    margin-top: 2pc;
+}

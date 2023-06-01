@@ -1,0 +1,87 @@
+/*sec 3*/
+.img1{
+  height: 30pc;
+  width: 46pc;
+}
+.para{
+	text-align: justify;
+  /* margin-top: 3pc; */
+}
+
+.separator{
+  text-align: center;
+  background-color: #ebc4a1;
+  height: 4pc;
+  width: 100%;
+}
+
+/* wishlist */
+.genrename{
+  font-size:2pc;
+  text-align: center;
+}
+.image{
+  height:8pc;
+  margin-top: 1pc;
+  width: 6pc;
+  margin-left:1pc;
+}
+.add{
+  background-color: #ebc4a1;;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2pc;
+  color: black !important;
+}
+.card-body {
+  margin-top: -8.5pc;
+  margin-left: 8pc;
+}
+.btnclass{
+  margin-left: 13pc;
+}
+
+/* profile.html */
+.list-group{
+  font-size:18px;
+}
+.human{
+  height: 17pc;
+  width: 17pc;
+  border-radius: 50%;
+  margin-left:5pc;
+  margin-top: 1pc;
+}
+.profile{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top:4pc;
+}
+#togglePassword{
+  margin-left: 24pc;
+  margin-top: -1.5pc;
+}
+.alert{
+  width: 29pc;
+  margin-left: 22pc;
+  text-align: center;
+}
+.edit{
+  height: 2pc;
+  width: 4pc;
+  background-color: white;
+  margin-top: 14pc;
+  margin-left: -6pc;
+  z-index:0;
+}
+.drop-content{
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:1;
+  margin-left: -6pc;
+  }
+.dropdown:hover .drop-content {
+  display: block;
+}

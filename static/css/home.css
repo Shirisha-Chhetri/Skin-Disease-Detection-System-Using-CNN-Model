@@ -1,0 +1,266 @@
+.img{
+  height: 65pc;
+  width: 94.9pc;
+  margin-top: 6.5pc;
+  object-fit: cover;
+}
+.logos{
+  height: 4pc;
+    margin-left: 7pc;
+    object-fit: cover;
+}
+.caretips{
+  object-fit: cover;
+  height: 89pc;
+  width: 78pc;
+  margin-top: 5px;
+  margin-left: 7pc;
+}
+.centers{
+  background-color: #ebc4a1;
+  height: 23pc;
+}
+.skincare a{
+  color: black;
+  font-size: 26px;
+  margin-left: 7pc;
+  margin-top: 4pc;
+  font-weight: 500;
+  font-family: cursive;
+}
+.assistance{
+  font-size: 32px;
+  margin-left: 17pc;
+  margin-top: 2pc;
+}
+.book{
+  font-size: 35px;
+  /* align-content: center;
+  text-align: center; */
+  font-weight: bold;
+  margin-left:35pc;
+  margin-top: 2pc;
+
+}
+.image1{
+  height: 20pc;
+  width: 32pc;
+  margin-left: 3pc;
+}
+.detail{
+  height: 2pc;
+  width: 32pc;
+  margin-left: 10pc;
+  margin-top: 4pc;
+}
+.button{
+  background-color: #ebc4a1;
+  border-radius: 2pc;
+  border: none;
+  width: 15pc;
+  font-size: 22px;
+  height: 3pc;
+}
+.details{
+  text-align: justify;
+  color: black;
+}
+
+
+
+
+
+
+/*sec3  home.html*/
+input{
+  width:50pc!important;
+}
+
+.btn1{
+  height:60px !important;
+  width:18.3pc !important;
+  border: none;
+  font-size: 20px !important;
+  margin-left: -1pc;
+}
+
+
+.button a{
+  color: black;
+}
+.caro{
+  height:10pc;
+  width: 10pc;
+}
+.search{
+  position: absolute;
+  margin-left:11pc;
+  color: burlywood;
+}
+.inputs{
+  text-indent: 2pc;
+  height:3pc;
+  margin-left:10pc;
+  font-size: 17px;
+}
+.centered{
+  color: white;
+  margin-top: -20pc;
+  margin-left:6pc;
+}
+.more a{
+  color: black;
+  font-size: 20px;
+  margin-left: 6pc;
+}
+.drop {
+  display: none;
+  position: absolute;
+  background-color: #be9cee;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+  z-index: 2;
+  width: 18.3pc;
+  margin-top: -1pc;
+  column-count: 2;
+  margin-left: -1pc;
+}
+.drop a {
+  padding: 8px 22px;
+  display: inline-flex;
+  font-size: 16px;
+  color: black;
+}
+.dropdown:hover .drop {
+  display: block;
+}
+.drop a:hover{
+color: blue;
+}
+
+
+/* book.html */
+.bookimage{
+  width: 11.5pc;
+  height:15pc;
+  margin-left:-5px;
+  margin-bottom: 8px;
+}
+.quote{
+  margin-top: 4pc;
+  font-family: Cursive;
+  font-style: italic;
+  font-size: 26px;
+  text-align: center;
+  color: #8774cc;
+}
+
+
+/* specific_book */
+#bookdetail{
+  background-color:#eeeaf3;
+  height:auto;
+  margin-left: 0.5pc;
+  width: 73pc;
+}
+#bookdetail a{
+  color: black;
+  border: none;
+}
+.specificimg{
+  height: 25pc;
+  width: 30pc;
+  margin-left:6pc;
+}
+.describe{
+  margin-left:7pc;
+  text-align: justify;
+  margin-right: 3pc;
+}
+.title{
+  font-size: 16px;
+}
+.form{
+  margin-top: 6pc;
+  margin-left: 5pc;
+}
+.buy,.wish{
+  background-color:#8774cc;
+}
+.buy{
+  margin-left: 16pc !important;
+  margin-top: -4.5pc !important;
+}
+
+
+/* booksongenre */
+.con{
+  height: 13pc;
+  margin-bottom: 8px;
+}
+.booky{
+  width: 10.5pc;
+  height:13pc;
+  margin-left:4.5px;                     
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  transform: translate(105%,-120%);         
+  width:9.5pc;
+  height:10pc;
+  margin-left: -9.5pc;
+  z-index: 2;
+}
+.con:hover .booky{
+  opacity: 0.2;
+}
+.con:hover .middle{
+  opacity: 1;
+}
+.anchor{
+  color: black;
+}
+.anchor:hover{
+  color: black;
+}
+
+/* allgenre.html */
+#tag{
+  width: 20pc !important;
+  margin-left: 39pc;
+  margin-top: -4pc;
+  text-indent:1.5pc;
+}
+.search1{
+  position: absolute;
+  margin-left: 39.5pc;
+  margin-top: -4pc;
+  color: burlywood;
+}
+.all{
+  font-size:2pc;
+  margin-left:11pc;
+}
+
+/* search.html */
+.genrename{
+  font-size:2pc;
+  text-align: center;
+  font-style: oblique;
+  font-family: 'Poppins'
+}
+.card {
+  flex-direction: row;
+  margin-left:22pc;
+}
+.image{
+  height:8pc;
+  margin-top: 1pc;
+  margin-left: 1pc;
+  width: 6pc;
+}
+.card-body a{
+ color: black;
+}
