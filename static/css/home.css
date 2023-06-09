@@ -12,9 +12,9 @@
 .caretips{
   object-fit: cover;
   height: 89pc;
-  width: 78pc;
-  margin-top: 5px;
-  margin-left: 7pc;
+  width: 95%;
+  display: block;
+  margin: 8px auto 0px auto;
 }
 .centers{
   background-color: #ebc4a1;
@@ -45,10 +45,10 @@
 .image1{
   height: 20pc;
   width: 32pc;
-  margin-left: 3pc;
+  margin:0pc 3pc 0pc 3pc;
 }
 .detail{
-  height: 2pc;
+  height: auto;
   width: 32pc;
   margin-left: 10pc;
   margin-top: 4pc;
@@ -64,6 +64,7 @@
 .details{
   text-align: justify;
   color: black;
+
 }
 
 

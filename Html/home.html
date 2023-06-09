@@ -18,7 +18,6 @@
     <div class="container-fluid">
       {% for disease in diseases %}
       <div class="row mt-2">
-        
         <div class="col-md-6">
           <div class="detail">
             <h3 style="text-align: center;">{{disease.name}}</h3>
@@ -28,6 +27,10 @@
               </div>
           </div>
         </div>  
+      <div class="col-md-6">
+      <img src="{{disease.images}}" class="image1">
+        </div>
+      </div>
       {% endfor %}
     </div>    
   </div>

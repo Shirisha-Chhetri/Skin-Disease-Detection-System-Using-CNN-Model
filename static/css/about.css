@@ -1,7 +1,7 @@
 /*sec 3*/
 .img1{
   height: 30pc;
-  width: 46pc;
+  width: 43pc;
 }
 .para{
 	text-align: justify;
@@ -10,7 +10,7 @@
 
 .separator{
   text-align: center;
-  background-color: #ebc4a1;
+  /* background-color: #ebc4a1; */
   height: 4pc;
   width: 100%;
 }

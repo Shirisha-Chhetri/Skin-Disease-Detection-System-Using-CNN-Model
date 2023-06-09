@@ -75,19 +75,21 @@ nav a:hover,nav a{
   margin-top: 1pc;
   }
 .dropdown-contents a {
-    padding: 6px 26px;
-    display: block;
-    font-size: 18px !important;
-    margin-left: 0px !important;
-    }
+  padding: 6px 26px;
+  display: block;
+  font-size: 18px !important;
+  margin-left: 0px !important;
+  }
 .dropdown-content a {
-padding: 12px 26px;
-display: block;
-font-size: 14px;
+  padding: 12px 26px;
+  display: block;
+  font-size: 14px;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content .dropdown-contents {
 display: block;
 }
+
+
 .user{
 margin-left: 8pc;
 font-size: 18px;

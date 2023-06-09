@@ -16,6 +16,8 @@
     text-align: justify;
     font-size: 16px;
     padding: 2pc 1pc 0px 1pc;
+    height: 36ch;
+    overflow: hidden;
 }
 .read_on{
     background-color: #ebc4a1;
@@ -26,6 +28,9 @@
     height: 3pc;
     margin-left: 1pc;
 }
+.read_on a{
+    color: black;
+  }
 .logo_image{
     height: 6pc;
     width: 50%;
