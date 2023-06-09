@@ -24,16 +24,11 @@ header::before{
 	position: fixed;
 	width: 100%;
 	z-index: -1;
-  height: 50px !important;
+  height: 5pc!important;
 }
 nav{
 	position: fixed;
   width: 100%;
-}
-.secnav{
-  height: 5pc;
-  margin-top: 0.5pc;
-  background-color:#ebc4a1;
 }
 .name{
 font-size: 19px;
@@ -57,11 +52,10 @@ nav a:hover,nav a{
 
 
 .header{
-  width: 13%;
-  margin-left: 1pc;
-  height: 40px;
-  margin-top: 3px;
-  border-radius: 50%
+  width: 23%;
+  height: 2.5pc;
+  margin-top: 1pc;
+  margin-bottom: 1.5pc;
 }
 .dropdown-content{
   display: none;
@@ -69,8 +63,23 @@ nav a:hover,nav a{
   background-color: #ebc4a1;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index:1;
-  margin-left:6pc;
+  margin-left:1pc;
   }
+.dropdown-contents{
+  display: none;
+  position: absolute;
+  background-color: #ebc4a1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:1;
+  margin-left: 27pc;
+  margin-top: 1pc;
+  }
+.dropdown-contents a {
+    padding: 6px 26px;
+    display: block;
+    font-size: 18px !important;
+    margin-left: 0px !important;
+    }
 .dropdown-content a {
 padding: 12px 26px;
 display: block;
@@ -85,9 +94,8 @@ font-size: 18px;
 margin-top: 6px;
 }
 .info{
-font-size: 18px;
-margin-left:8pc;
-margin-top: 2pc;
+font-size: 25px;
+margin-left:2pc;
 }
 
 #mySidenav{

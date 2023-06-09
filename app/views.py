@@ -7,22 +7,35 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
-from .models import Profile, DiseaseDetail
+from .models import Profile, DiseaseDetail, SkinCareCenter
 
 
 # home
 def home(request):
     disease = DiseaseDetail.objects.all().order_by('id')
-    return render(request, 'home.html',{'diseases':disease})
+    carecenter= SkinCareCenter.objects.all().order_by('-id')
+    return render(request, 'home.html',
+                  {'diseases':disease,
+                   'carecenters': carecenter})
 
 # about
 def about(request):
     return render(request,'about.html')
 
+def carecenters(request):
+    carecenter= SkinCareCenter.objects.all().order_by('id')
+    return render(request,'carecenters.html', {'carecenters': carecenter})
+
+
+# specific center
+def specific_center(request,id):
+    specificcenter = get_object_or_404(SkinCareCenter, pk=id)
+    return render(request,'specific_center.html',{'center':specificcenter})
+
 # specific disease
 def specific_disease(request,id):
-    specificbook = get_object_or_404(DiseaseDetail, pk=id)
-    return render(request,'diseaseinfo.html',{'disease':specificbook})
+    specificdisease = get_object_or_404(DiseaseDetail, pk=id)
+    return render(request,'diseaseinfo.html',{'disease':specificdisease})
 
 @login_required(login_url ='login')
 # to change user password 

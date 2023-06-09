@@ -1,0 +1,57 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="{% static 'css/center.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<div class="row mt-3">
+    <img src="{% static 'image/image (3).png' %}" class="img"/>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        {% for carecenter in carecenters%}
+        <div class="col-md-4">
+            <div class="block">
+                <img class="center_image" src="{{carecenter.image}}">
+                <!-- <div class="card-body">
+                  <h5 class="card-title">Card title</h5> -->
+                  <p class="description">At Lavana Skin and Hair Clinic, we offer you a variety of services where 
+                    first your needs are identified and desires understood. We then specialize in customized 
+                    treatment provided by Registered Dermatologists and Cosmetic Surgeons trained and certified 
+                    in Globally Renowned Institutions for best results. We at Lavana believe that beauty begins 
+                    from within. Help us to assist you in the journey to bring out your inner radiance, for a 
+                    beautiful you inside out.</p>
+                    <button class="read_on" type="button"><a href="/carecenters/{{carecenter.id}}">Read On></a></button>
+                <!-- </div> -->
+              </div>
+        </div>
+        {% endfor %}
+
+        <!-- <div class="col-md-4">
+            <div class="block">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="block">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div> -->
+    </div>
+</div>
+{% endblock %}

@@ -16,8 +16,9 @@
 
   <div id="sec5">
     <div class="container-fluid">
-      <div class="row">
-        {% for disease in diseases %}
+      {% for disease in diseases %}
+      <div class="row mt-2">
+        
         <div class="col-md-6">
           <div class="detail">
             <h3 style="text-align: center;">{{disease.name}}</h3>
@@ -26,13 +27,7 @@
                 <button class="button" type="button"><a href="diseaseinfo/disease/{{disease.id}}">Read More ...</a></button>
               </div>
           </div>
-        </div>
-
-        <div class="col-md-6">            
-            <img src="{{disease.images}}" class="image1" alt="...">
-            </div>
-        </div>   
-      
+        </div>  
       {% endfor %}
     </div>    
   </div>
@@ -40,11 +35,9 @@
   <div class="container-fluid mt-2">
     <div class="row centers">
       <p class="assistance">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
-        <img src="{% static 'image/nepal.png' %}" class="logos"/>
-        <img src="{% static 'image/jebina.png' %}" class="logos"/>
-        <img src="{% static 'image/aesthetic.png' %}" class="logos"/>
-        <img src="{% static 'image/Lavana-logo.png' %}" class="logos"/>
-        <img src="{% static 'image/ktm.png' %}" class="logos"/>
+      {% for carecenter in carecenters %}
+      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos"/></a>
+      {% endfor %}
     </div>
   </div>
 

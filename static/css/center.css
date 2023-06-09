@@ -1,0 +1,42 @@
+.block{
+    background-clip: border-box;
+    border: 3px solid #ebc4a1;
+    border-radius: 0.25rem;
+    margin: 2pc 0pc 0pc 4pc;
+    height: 30pc;
+    width: 22pc;
+}
+.center_image{
+    height: 3pc;
+    width: 17pc;
+    margin-left: 2pc;
+    margin-top: 1pc;
+}
+.description{
+    text-align: justify;
+    font-size: 16px;
+    padding: 2pc 1pc 0px 1pc;
+}
+.read_on{
+    background-color: #ebc4a1;
+    border-radius: 2pc;
+    border: none;
+    width: 8pc;
+    font-size: 22px;
+    height: 3pc;
+    margin-left: 1pc;
+}
+.logo_image{
+    height: 6pc;
+    width: 50%;
+    display: block;
+    margin: 8pc auto 0px auto;
+}
+.contact_info{
+    font-size: 17px;
+    margin-left: 1pc;
+    font-weight: 500;
+    width: 50%;
+    margin: 8px auto 0px auto;
+    text-align: center;
+}

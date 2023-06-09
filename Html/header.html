@@ -32,12 +32,28 @@
     <nav>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-8 mt-2">
-            <span class="name"><i class="fa fa-sign-out-alt">skincare@gmail.com</i></span> 
-            <span class="name"><i class="fa fa-phone">contact</i></span> 
+          <div class="col-md-4">
+            <img src="{% static 'image/logo2.png' %}" class="img_logo">
+            <span id="title"><a href="../../" class="logo mt-2">Know Your Skin</a></span> 
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-6">
+            <div id="mySidenav">
+              <a href="../../about" id="about">About</a>
+              <a href="../../carecenters" id="home">Care Centers</a>
+             
+              <a href="../../diseaseinfo" id="home">Disease Details</a>
+              <div class="dropdown-contents">
+              <a href="diseaseinfo/disease/1">Ezchema</a> 
+              <a href="diseaseinfo/disease/2">Melanoma</a>
+              <a href="diseaseinfo/disease/3">Psoriasis</a> 
+              <a href="diseaseinfo/disease/4">Basal Cell Carcinoma</a>
+                    
+            </div>
+            </div>
+          </div>  
+
+          <div class="col-md-2">
             {% if request.user.is_authenticated %} 
               {% if not request.user.is_staff %}         
                 <div class="dropdown">
@@ -51,7 +67,7 @@
                   
                   <div class="dropdown-content">
                     <a href="{% url 'profile' %}"><i class="fa fa-user">&nbsp;&nbsp;Profile</i></a> 
-                    <a href="{% url 'logouts' %}"><i class = "fa fa-sign-out-alt">&nbsp;&nbsp; Logout</i></a>
+                    <a href="{% url 'logouts' %}"><i class = "fa fa-sign-out">&nbsp;&nbsp; Logout</i></a>
                   </div>    
                 </div>
               {% endif %}
@@ -61,30 +77,6 @@
                 <a href="../../login"><i class="fa fa-user" ></i></a></li>
               </ul>
             {% endif %} 
-          </div>  
-        </div>
-      </div>   
-
-      <div class="container-fluid">
-        <div class="row secnav mt-3">
-          <div class="col-md-4">
-            <div id="mySidenav">
-              <a href="../../about" id="about">About</a>
-              <a href="../../diseaseinfo" id="home">Care Centers</a>
-            </div>
-            </div>
-          <div class="col-md-4">
-          <!-- <span> -->
-            <img src="{% static 'image/logo2.png' %}" class="img_logo">
-          <!-- </span> -->
-            <span id="title"><a href="../../" class="logo mt-2">Know Your Skin</a></span> 
-          </div>
-
-          <div class="col-md-4">
-            <div id="mySidenav">
-              <a href="../../diseaseinfo" id="home">Disease Details</a>
-              <a href="../../book" id="book">Contact Us</a>
-            </div>
           </div>  
         </div>
       </div> 
