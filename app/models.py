@@ -25,8 +25,7 @@ file = "media/userprofile"
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='userprofile', default = 'human.png')
-
+    image = models.FileField(upload_to='userprofile/', default = 'human.png')
     def __str__(self):
         return f'{self.user}'
 
@@ -54,3 +53,9 @@ class SkinCareCenter(models.Model):
     
     def __str__(self):
         return self.name
+    
+class AffectedImage(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.FileField(upload_to='affectedphoto/')
+    def __str__(self):
+        return f'{self.user}'

@@ -85,8 +85,14 @@ nav a:hover,nav a{
   display: block;
   font-size: 14px;
 }
-.dropdown:hover .dropdown-content .dropdown-contents {
-display: block;
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-contents .disease_drop:hover{
+  display: block;
+}
+.disease_drop{
+  position: relative;
 }
 
 

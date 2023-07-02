@@ -41,14 +41,15 @@
             <div id="mySidenav">
               <a href="../../about" id="about">About</a>
               <a href="../../carecenters" id="home">Care Centers</a>
-             
-              <a href="../../diseaseinfo" id="home">Disease Details</a>
-              <div class="dropdown-contents">
+             <div class="disease_drop">
+              <a class="disease_drop">Disease Details</a>
+              <div class="dropdown-content">
               <a href="../diseaseinfo/disease/1">Ezchema</a> 
               <a href="../diseaseinfo/disease/2">Melanoma</a>
               <a href="../diseaseinfo/disease/3">Psoriasis</a> 
               <a href="../diseaseinfo/disease/4">Basal Cell Carcinoma</a>
                     
+              </div>
             </div>
             </div>
           </div>  
@@ -67,17 +68,17 @@
                   
                   <div class="dropdown-content">
                     <a href="{% url 'profile' %}"><i class="fa fa-user">&nbsp;&nbsp;Profile</i></a> 
-                    <a href="{% url 'logouts' %}"><i class = "fa fa-sign-out">&nbsp;&nbsp; Logout</i></a>
+                    <a href="{% url 'logouts' %}"><i class = "fa fa-sign-out-alt">&nbsp;&nbsp; Logout</i></a>
                   </div>    
                 </div>
               {% endif %}
-              {% else %} 
+            {% else %} 
               <ul class="log">                 
                 <li>
-                <a href="../../login"><i class="fa fa-user" ></i></a></li>
-              </ul>
+                <a href="../../login">Log In |Sign Up</a></li>
+             </ul>
             {% endif %} 
-          </div>  
+          </div> 
         </div>
       </div> 
     </nav> 

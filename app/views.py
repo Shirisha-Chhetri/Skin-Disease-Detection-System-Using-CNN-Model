@@ -7,7 +7,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
-from .models import Profile, DiseaseDetail, SkinCareCenter
+from .models import Profile, DiseaseDetail, SkinCareCenter, AffectedImage
 from cryptography.fernet import Fernet
 
 
@@ -15,6 +15,9 @@ from cryptography.fernet import Fernet
 def home(request):
     disease = DiseaseDetail.objects.all().order_by('id')
     carecenter= SkinCareCenter.objects.all().order_by('-id')
+    if request.method == "POST" and request.FILES['affectedphoto']:
+        addProfile = AffectedImage(user=request.user, image= request.FILES['affectedphoto'])
+        addProfile.save()
     return render(request, 'home.html',
                   {'diseases':disease,
                    'carecenters': carecenter})
@@ -84,16 +87,12 @@ def change_password_profile(request):
         form = PasswordChangeForm(user=request.user)
     return render(request, 'profile.html', {'form': form ,'img':img})
 
-
+    
 def addprofile(request):
     if request.method == "POST" and request.FILES['profileimage']:
-        img = request.FILES['profileimage']
-        encrypted = encrypt(img, key)
-        addProfile = Profile(user=request.user, image=encrypted)
-        encrypted = addProfile.get_deferred_fields(request.FILES['profileimage'])
-        # print(encrypted)
-        # encrypted.save()
+        addProfile = Profile(user=request.user, image= request.FILES['profileimage'])
         addProfile.save()
+        encrypt("media/userprofile/", key)
         return redirect('/profile/')
     
 def updateImage(request):

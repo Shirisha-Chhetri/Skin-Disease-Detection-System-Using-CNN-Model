@@ -37,6 +37,21 @@
 
   <div class="container-fluid mt-2">
     <div class="row centers">
+      <div class="modal-body">
+        <div class="form-group">
+          <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="affectedphoto" accept="image/*" required>           
+            <input type="submit" class="btn" value="Add profile"  style="background-color: #ebc4a1;"/>     
+                       
+          </form>
+        </div>
+        </div>  
+    </div>
+  </div>
+
+  <div class="container-fluid mt-2">
+    <div class="row centers">
       <p class="assistance">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
       {% for carecenter in carecenters %}
       <a href="carecenters/"><img src="{{carecenter.image}}" class="logos"/></a>
