@@ -34,22 +34,31 @@
         <div class="row">
           <div class="col-md-4">
             <img src="{% static 'image/logo2.png' %}" class="img_logo">
-            <span id="title"><a href="../../" class="logo mt-2">Know Your Skin</a></span> 
+            <span id="title"><a href="http://127.0.0.1:8000/" class="logo mt-2">Know Your Skin</a></span> 
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-4">
             <div id="mySidenav">
-              <a href="../../about" id="about">About</a>
-              <a href="../../carecenters" id="home">Care Centers</a>
-             <div class="disease_drop">
-              <a class="disease_drop">Disease Details</a>
-              <div class="dropdown-content">
+              <a href="../../about">About</a>
+              <a href="../../carecenters">Care Centers</a>
+              <!-- <a class="disease_drop">Disease Details</a>
+              <div class="dropdown-contents">
               <a href="../diseaseinfo/disease/1">Ezchema</a> 
               <a href="../diseaseinfo/disease/2">Melanoma</a>
               <a href="../diseaseinfo/disease/3">Psoriasis</a> 
-              <a href="../diseaseinfo/disease/4">Basal Cell Carcinoma</a>
-                    
-              </div>
+              <a href="../diseaseinfo/disease/4">Basal Cell Carcinoma</a>                    
+            </div> -->
+            </div>
+          </div>  
+
+          <div class="col-md-2">
+            <div class="dropdown mt-3">
+             <a class="hi">Disease Details</a>
+              <div class="dropdown-contents">
+              <a href="http://127.0.0.1:8000/diseaseinfo/disease/1/">Ezchema</a> 
+              <a href="http://127.0.0.1:8000/diseaseinfo/disease/2/">Melanoma</a>
+              <a href="http://127.0.0.1:8000/diseaseinfo/disease/3/">Psoriasis</a> 
+              <a href="http://127.0.0.1:8000/diseaseinfo/disease/4/">Basal Cell Carcinoma</a>                    
             </div>
             </div>
           </div>  
@@ -75,7 +84,7 @@
             {% else %} 
               <ul class="log">                 
                 <li>
-                <a href="../../login">Log In |Sign Up</a></li>
+                <a href="../../login"><u>Wanna login?</u></a></li>
              </ul>
             {% endif %} 
           </div> 

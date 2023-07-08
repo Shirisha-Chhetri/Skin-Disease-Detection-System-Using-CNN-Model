@@ -11,14 +11,14 @@
 }
 .caretips{
   object-fit: cover;
-  height: 89pc;
+  height: auto;
   width: 95%;
   display: block;
   margin: 8px auto 0px auto;
 }
 .centers{
   background-color: #ebc4a1;
-  height: 23pc;
+  height: auto;
 }
 .skincare a{
   color: black;
@@ -31,7 +31,7 @@
 .assistance{
   font-size: 32px;
   margin-left: 17pc;
-  margin-top: 2pc;
+  margin-top: 4pc;
 }
 .book{
   font-size: 35px;
@@ -65,6 +65,20 @@
   text-align: justify;
   color: black;
 
+}
+#formFile{
+  padding: 0.375rem 0.75rem;
+  background-color: #eae3dd;
+  border-radius: 0.25rem;
+  margin-left: 17pc;
+}
+.uploadImage{
+  background-color: #eda96c;
+  margin-left: 2pc;
+  height: 2.5pc;
+  border: none;
+  width: 7pc;
+  border-radius: 2pc;
 }
 
 

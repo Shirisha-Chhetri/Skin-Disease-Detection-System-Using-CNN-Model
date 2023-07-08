@@ -28,33 +28,29 @@
           </div>
         </div>  
       <div class="col-md-6">
-      <img src="{{disease.images}}" class="image1">
+      <img src="{{disease.main_image}}" class="image1">
         </div>
       </div>
       {% endfor %}
     </div>    
   </div>
 
-  <div class="container-fluid mt-2">
-    <div class="row centers">
-      <div class="modal-body">
-        <div class="form-group">
-          <form  method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="file" name="affectedphoto" accept="image/*" required>           
-            <input type="submit" class="btn" value="Add profile"  style="background-color: #ebc4a1;"/>     
-                       
-          </form>
-        </div>
-        </div>  
+  <div class="container-fluid mt-2 centers" >
+    <div class="row">
+      <p class="assistance">Upload the affected part of your skin and we will predict the disease !!!</p>
+      <form  method="POST" enctype="multipart/form-data" class="mb-5 mt-5">
+        {% csrf_token %}
+        <input type="file" name="affectedphoto" accept="image/*" required id="formFile">     
+        <button type="submit" class="uploadImage">Upload Image</button>   
+      </form>
     </div>
-  </div>
+  </div>  
 
-  <div class="container-fluid mt-2">
-    <div class="row centers">
+  <div class="container-fluid mt-2 centers">
+    <div class="row">
       <p class="assistance">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
       {% for carecenter in carecenters %}
-      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos"/></a>
+      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos mb-5 mt-5"/></a>
       {% endfor %}
     </div>
   </div>

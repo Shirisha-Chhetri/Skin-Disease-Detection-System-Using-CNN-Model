@@ -3,19 +3,20 @@
     border: 3px solid #ebc4a1;
     border-radius: 0.25rem;
     margin: 2pc 0pc 0pc 4pc;
-    height: 30pc;
+    height: auto;
     width: 22pc;
 }
 .center_image{
-    height: 3pc;
+    height: 7pc;
     width: 17pc;
     margin-left: 2pc;
     margin-top: 1pc;
+    object-fit: contain;
 }
 .description{
     text-align: justify;
     font-size: 16px;
-    padding: 2pc 1pc 0px 1pc;
+    padding: 1pc 1pc 0px 1pc;
     height: 36ch;
     overflow: hidden;
 }
@@ -27,6 +28,7 @@
     font-size: 22px;
     height: 3pc;
     margin-left: 1pc;
+    margin-bottom: 1pc;
 }
 .read_on a{
     color: black;
@@ -44,4 +46,5 @@
     width: 50%;
     margin: 8px auto 0px auto;
     text-align: center;
+    color:brown;
 }

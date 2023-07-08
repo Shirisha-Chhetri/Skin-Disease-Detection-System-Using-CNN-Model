@@ -7,7 +7,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
-from .models import Profile, DiseaseDetail, SkinCareCenter, AffectedImage
+from .models import Profile, DiseaseDetail, SkinCareCenter, AffectedImage,DiseaseImage
 from cryptography.fernet import Fernet
 
 
@@ -39,7 +39,8 @@ def specific_center(request,id):
 # specific disease
 def specific_disease(request,id):
     specificdisease = get_object_or_404(DiseaseDetail, pk=id)
-    return render(request,'diseaseinfo.html',{'disease':specificdisease})
+    photos = DiseaseImage.objects.filter(existing=specificdisease)
+    return render(request,'diseaseinfo.html',{'disease':specificdisease, 'photos' : photos})
 
 def encrypt(filename, key):
     f = Fernet(key)

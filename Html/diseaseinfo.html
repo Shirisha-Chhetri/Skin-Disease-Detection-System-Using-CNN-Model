@@ -14,21 +14,23 @@
     <div class="row">      
         <div class="col-md-6 mt-4 img1">
             <div class="row">
+                {% for p in photos %}
                 <div class="col-md-6"> 
-                    <img src="{% static 'image/1_18.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
+                    <img src="{{p.images.url}}" class="" style="height: 15pc; width: 24pc;"/>
                 </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <img src="{% static 'image/3_19.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
-            </div>
+            </div> -->
+            {% endfor %}
         </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6">
                     <img src="{% static 'image/3_25.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
                 </div>
                 <div class="col-md-6">
                     <img src="{% static 'image/4_7.jpg' %}" class="" style="height: 15pc; width: 24pc;"/>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-md-6 mt-5">
             <h3 style="text-align: center;">{{disease.name}}</h3>

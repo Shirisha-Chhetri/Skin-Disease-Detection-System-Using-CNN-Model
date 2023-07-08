@@ -37,12 +37,12 @@ margin-left: 2pc;
 }
 #title{
   font-size: 25px;
-font-family: cursive;
+  font-family: cursive;
 }
 .log{
 	list-style: none;
-  margin-left:9pc;
-  /* margin-top:1pc */
+  margin-top: 1.5pc;
+  font-size: 20px;
 }
 nav a:hover,nav a{
 	color: black;
@@ -67,34 +67,38 @@ nav a:hover,nav a{
   }
 .dropdown-contents{
   display: none;
-  position: absolute;
   background-color: #ebc4a1;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index:1;
-  margin-left: 27pc;
-  margin-top: 1pc;
+  margin-left: -2pc;
+  margin-top: 1.5pc;
   }
 .dropdown-contents a {
-  padding: 6px 26px;
+  padding: 0px 11px 7px 25px;
   display: block;
-  font-size: 18px !important;
-  margin-left: 0px !important;
+  font-size: 20px !important;
   }
 .dropdown-content a {
   padding: 12px 26px;
   display: block;
   font-size: 14px;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content{
   display: block;
-}
-.dropdown-contents .disease_drop:hover{
-  display: block;
-}
-.disease_drop{
-  position: relative;
 }
 
+.hi{
+  font-size: 25px;
+  font-style: normal;
+  margin-left: -2pc;
+}
+.dropdown:hover .dropdown-contents{
+  display: block;
+}
+
+/* .disease_drop:hover + .dropdown-contents{
+  display:block;
+}  */
 
 .user{
 margin-left: 8pc;
@@ -120,7 +124,7 @@ z-index: 3;
 text-decoration: none; */
 font-size: 25px;
 font-style: normal;
-margin: 0px -2pc 0px 5pc;
+margin-left: 5pc;
 /* border-radius: 0 5px 5px 0; */
 /* overflow-x: hidden;
 background-color:#8774cc;
