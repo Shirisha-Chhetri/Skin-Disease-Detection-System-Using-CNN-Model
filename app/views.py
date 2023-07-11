@@ -1,3 +1,8 @@
+import json
+import pandas as pd
+import os
+from django.db.models import Q
+
 from django.shortcuts import render
 
 from django.contrib.auth.forms import PasswordChangeForm,PasswordResetForm
@@ -6,18 +11,23 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
+from .forms import UploadForm
+from django.db import transaction
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
-from .models import Profile, DiseaseDetail, SkinCareCenter, AffectedImage,DiseaseImage
-from cryptography.fernet import Fernet
+from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, Disease, Dataset
+# from cryptography.fernet import Fernet
 
 
+
+# @login_required(login_url ='login')
 # home
 def home(request):
     disease = DiseaseDetail.objects.all().order_by('id')
     carecenter= SkinCareCenter.objects.all().order_by('-id')
-    if request.method == "POST" and request.FILES['affectedphoto']:
-        addProfile = AffectedImage(user=request.user, image= request.FILES['affectedphoto'])
-        addProfile.save()
+    # user = request.user
+    # if request.method == "POST" and request.FILES['affectedphoto']:
+    #     addProfile = UserUploadedImage(user=user, image= request.FILES['affectedphoto'])
+    #     addProfile.save()
     return render(request, 'home.html',
                   {'diseases':disease,
                    'carecenters': carecenter})
@@ -42,32 +52,32 @@ def specific_disease(request,id):
     photos = DiseaseImage.objects.filter(existing=specificdisease)
     return render(request,'diseaseinfo.html',{'disease':specificdisease, 'photos' : photos})
 
-def encrypt(filename, key):
-    f = Fernet(key)
-    with open(filename, "rb") as file:
-        file_data = file.read()
-    encrypted_data = f.encrypt(file_data)
-    with open(filename, "wb") as file:
-        file.write(encrypted_data)
+# def encrypt(filename, key):
+#     f = Fernet(key)
+#     with open(filename, "rb") as file:
+#         file_data = file.read()
+#     encrypted_data = f.encrypt(file_data)
+#     with open(filename, "wb") as file:
+#         file.write(encrypted_data)
 
-def decrypt(filename, key):
-    f = Fernet(key)
-    with open(filename, "rb") as file:
-        encrypted_data = file.read()
-    decrypted_data = f.decrypt(encrypted_data)
-    with open(filename, "wb") as file:
-         file.write(decrypted_data)
+# def decrypt(filename, key):
+#     f = Fernet(key)
+#     with open(filename, "rb") as file:
+#         encrypted_data = file.read()
+#     decrypted_data = f.decrypt(encrypted_data)
+#     with open(filename, "wb") as file:
+#          file.write(decrypted_data)
 
-def write_key():
-    key = Fernet.generate_key()
-    with open("key.key", "wb") as key_file:
-        key_file.write(key)
+# def write_key():
+#     key = Fernet.generate_key()
+#     with open("key.key", "wb") as key_file:
+#         key_file.write(key)
 
-def load_key():
-    return open("key.key", "rb").read()
+# def load_key():
+#     return open("key.key", "rb").read()
 
-write_key()
-key = load_key()
+# write_key()
+# key = load_key()
 
 @login_required(login_url ='login')
 # to change user password 
@@ -93,7 +103,7 @@ def addprofile(request):
     if request.method == "POST" and request.FILES['profileimage']:
         addProfile = Profile(user=request.user, image= request.FILES['profileimage'])
         addProfile.save()
-        encrypt("media/userprofile/", key)
+        # encrypt("media/userprofile/", key)
         return redirect('/profile/')
     
 def updateImage(request):
@@ -203,23 +213,16 @@ def upload(request):
         try:
             if file_form.is_valid():
             
-                dataset = pd.read_csv(request.FILES['uploadfile'])
+                dataset = pd.read_csv(request.FILES['uploadfile'], encoding='utf-16')
                 new_book_list =[]
                 with transaction.atomic():
 
                     for index, row in dataset.iterrows():
-                        book = Book(
-                            title = row['title'], 
-                            genre = row['genre'],                      
-                            description = row['description'],
-                            author = row['author'],
-                            bookformat = row['bookformat'],
-                            isbn = row['isbn'],
-                            pages = row['pages'],                           
-                            image = row['image']
+                        book = Dataset(
+                            images = row['images']
                         )
                         new_book_list.append(book)
-                Book.objects.bulk_create(new_book_list)
+                Dataset.objects.bulk_create(new_book_list)
                 return redirect('/book/page/1')
 
         except Exception as e:
