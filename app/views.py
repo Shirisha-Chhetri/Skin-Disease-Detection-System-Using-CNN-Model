@@ -11,10 +11,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
-from .forms import UploadForm
 from django.db import transaction
+from .ml import predict
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
-from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, Disease, Dataset
+from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, Uploaded_Image
 # from cryptography.fernet import Fernet
 
 
@@ -24,10 +27,10 @@ from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, Disease
 def home(request):
     disease = DiseaseDetail.objects.all().order_by('id')
     carecenter= SkinCareCenter.objects.all().order_by('-id')
-    # user = request.user
-    # if request.method == "POST" and request.FILES['affectedphoto']:
-    #     addProfile = UserUploadedImage(user=user, image= request.FILES['affectedphoto'])
-    #     addProfile.save()
+    user = request.user
+    if request.method == "POST" and request.FILES['affectedphoto']:
+        addProfile = Uploaded_Image(user=user, image= request.FILES['affectedphoto'])
+        addProfile.save()
     return render(request, 'home.html',
                   {'diseases':disease,
                    'carecenters': carecenter})
@@ -51,6 +54,7 @@ def specific_disease(request,id):
     specificdisease = get_object_or_404(DiseaseDetail, pk=id)
     photos = DiseaseImage.objects.filter(existing=specificdisease)
     return render(request,'diseaseinfo.html',{'disease':specificdisease, 'photos' : photos})
+
 
 # def encrypt(filename, key):
 #     f = Fernet(key)
@@ -201,33 +205,3 @@ def signup(request):
         else:
             return render(request,'register.html',{'error':error_message})
     return render(request,'register.html')
-
-
-# dataset upload form module
-def upload(request):
-    file_form = UploadForm()
-    error_messages = {}
-
-    if request.method == "POST":
-        file_form = UploadForm(request.POST, request.FILES)
-        try:
-            if file_form.is_valid():
-            
-                dataset = pd.read_csv(request.FILES['uploadfile'], encoding='utf-16')
-                new_book_list =[]
-                with transaction.atomic():
-
-                    for index, row in dataset.iterrows():
-                        book = Dataset(
-                            images = row['images']
-                        )
-                        new_book_list.append(book)
-                Dataset.objects.bulk_create(new_book_list)
-                return redirect('/book/page/1')
-
-        except Exception as e:
-            print(e)
-            error_messages['error'] = e
-
-    return render(request, 'upload_dataset.html',{'form' : file_form,
-                                    'error_messages': error_messages})

@@ -59,23 +59,10 @@ class SkinCareCenter(models.Model):
     def image_tag(self): # new
         return mark_safe('<img src="%s" width="200" height="100" />' % (self.image))
 
-
-class Disease(models.Model):
-    name = models.CharField(max_length=50, null=True)
-
-    def __str__(self):
-        return self.name
     
-class Dataset(models.Model):
-    existing = models.ForeignKey(Disease, default=None, on_delete=models.CASCADE)
-    images = models.ImageField(blank=True)
-
-    def __str__(self):
-        return self.existing
-
-class UserUploadedImage(models.Model):
+class Uploaded_Image(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    image = models.FileField(upload_to='affectedphoto/', blank= True)
-
+    image = models.FileField(upload_to='user_uploads/', blank=True)
     def __str__(self):
-        return self.user.username
+        return self
+    

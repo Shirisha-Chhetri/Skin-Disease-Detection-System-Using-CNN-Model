@@ -35,8 +35,8 @@
     </div>    
   </div>
 
+
   <div class="container-fluid mt-2 centers" >
-    {% if request.user.is_authenticated %} 
     <div class="row">
       <p class="assistance">Upload the affected part of your skin and we will predict the disease !!!</p>
       <form  method="POST" enctype="multipart/form-data" class="mb-5 mt-5">
@@ -45,7 +45,6 @@
         <button type="submit" class="uploadImage">Upload Image</button>   
       </form>
     </div>
-    {% endif %}
   </div>  
 
   <div class="container-fluid mt-2 centers">

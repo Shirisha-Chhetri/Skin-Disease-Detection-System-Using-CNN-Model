@@ -1,21 +1,15 @@
 import tensorflow as tf
-from tensorflow.keras import models, layers
 import matplotlib.pyplot as plt
-from .models import UserUploadedImage
+from PIL import Image
+import numpy as np
 
-BATCH_SIZE = 32
-IMAGE_SIZE = 256
-CHANNELS=3
-EPOCHS=50
+def predict(model, img):
+    img_array = tf.keras.preprocessing.image.img_to_array(img)
+    img_array = tf.expand_dims(img_array, 0)
 
-def get_recommendation_for_book(image_id):
-    dataset = tf.keras.preprocessing.image_dataset_from_directory(
-    "Training",
-    seed=123,
-    shuffle=True,
-    image_size=(IMAGE_SIZE,IMAGE_SIZE),
-    batch_size=BATCH_SIZE
+    predictions = model.predict(img_array)
 
-    class_names = dataset.class_names
-    
-)
+    predicted_class = class_names[np.argmax(predictions[0])]
+    confidence = round(100 * (np.max(predictions[0])), 2)
+    plt.imshow(img)
+    return predicted_class, confidence

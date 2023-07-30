@@ -23,7 +23,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('uploaddataset/',views.upload,name = "Upload dataset"),
     path('admin/', admin.site.urls),
     path('',views.home),
     path('about/',views.about),

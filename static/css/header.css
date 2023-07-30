@@ -56,6 +56,7 @@ nav a:hover,nav a{
   height: 2.5pc;
   margin-top: 1pc;
   margin-bottom: 1.5pc;
+  border-radius: 2pc;
 }
 .dropdown-content{
   display: none;
