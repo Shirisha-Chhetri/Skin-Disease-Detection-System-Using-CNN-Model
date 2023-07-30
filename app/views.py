@@ -15,6 +15,7 @@ from django.db import transaction
 from .ml import predict
 import tensorflow as tf
 import numpy as np
+from PIL import Image
 import matplotlib.pyplot as plt
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
 from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, UserUpload
@@ -26,15 +27,43 @@ from .forms import UploadForm
 # @login_required(login_url ='login')
 # home
 def home(request):
+    prediction = None
     disease = DiseaseDetail.objects.all().order_by('id')
     carecenter= SkinCareCenter.objects.all().order_by('-id')
     user = request.user
     if request.method == "POST" and request.FILES['affectedphoto']:
         addProfile = UserUpload(user=user, image= request.FILES['affectedphoto'])
         addProfile.save()
+        image_path = addProfile.image.url
+        print(image_path)
+        i = "C:/Users/Admin/Desktop/Files/Skin Disease Detection System/detection_system" + image_path
+        print(i)
+        image = Image.open(i)
+        plt.imshow(image)
+        img = image.resize((256, 256))
+
+        # Convert the image to a NumPy array
+        image_array = np.array(img)
+       
+        # src = cv2.imread(image_path)
+
+        # width = 256
+        # height = 256
+
+        # # dsize
+        # dsize = (width, height)
+
+        # # resize image
+        # output = cv2.resize(src, dsize)
+        # print(output.shape)
+        # qw= cv2.imread(output) 
+
+        new_model = tf.keras.models.load_model('C:\\Users\\Admin\\Documents\\Model\\model.h1')
+        prediction = predict(new_model, image_array)
     return render(request, 'home.html',
                   {'diseases':disease,
-                   'carecenters': carecenter})
+                   'carecenters': carecenter,
+                   'a' : prediction})
 
 # about
 def about(request):

@@ -62,7 +62,7 @@ class SkinCareCenter(models.Model):
     
 class UserUpload(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    image = models.FileField(upload_to='user_uploads/', blank=True)
+    image = models.ImageField(upload_to='user_uploads/', blank=True)
     
     
     
