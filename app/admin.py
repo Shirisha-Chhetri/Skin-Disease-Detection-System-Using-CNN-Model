@@ -1,8 +1,7 @@
 from django.contrib import admin
-from .models import Profile, DiseaseDetail, SkinCareCenter, DiseaseImage, Uploaded_Image
+from .models import Profile, DiseaseDetail, SkinCareCenter, DiseaseImage, UserUpload
 
 # Register your models here.
-admin.site.register(Uploaded_Image)
 
 class ImageAdmin(admin.StackedInline):
     model = DiseaseImage
@@ -23,6 +22,7 @@ class userUploadedPhoto(admin.ModelAdmin):
     list_display = ["user", "image"]
 
 admin.site.register(Profile, userUploadedPhoto)
+admin.site.register(UserUpload, userUploadedPhoto)
 
 
 class careCenterImage(admin.ModelAdmin):

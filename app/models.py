@@ -60,9 +60,9 @@ class SkinCareCenter(models.Model):
         return mark_safe('<img src="%s" width="200" height="100" />' % (self.image))
 
     
-class Uploaded_Image(models.Model):
+class UserUpload(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     image = models.FileField(upload_to='user_uploads/', blank=True)
-    def __str__(self):
-        return self
+    
+    
     

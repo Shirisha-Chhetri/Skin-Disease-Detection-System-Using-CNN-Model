@@ -17,7 +17,8 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
-from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, Uploaded_Image
+from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, UserUpload
+from .forms import UploadForm
 # from cryptography.fernet import Fernet
 
 
@@ -29,7 +30,7 @@ def home(request):
     carecenter= SkinCareCenter.objects.all().order_by('-id')
     user = request.user
     if request.method == "POST" and request.FILES['affectedphoto']:
-        addProfile = Uploaded_Image(user=user, image= request.FILES['affectedphoto'])
+        addProfile = UserUpload(user=user, image= request.FILES['affectedphoto'])
         addProfile.save()
     return render(request, 'home.html',
                   {'diseases':disease,
@@ -205,3 +206,38 @@ def signup(request):
         else:
             return render(request,'register.html',{'error':error_message})
     return render(request,'register.html')
+
+
+def upload(request):
+    file_form = UploadForm()
+    error_messages = {}
+
+    if request.method == "POST":
+        file_form = UploadForm(request.POST, request.FILES)
+        try:
+            if file_form.is_valid():
+                dataset = pd.read_csv(request.FILES['uploadfile'])
+                new_book_list =[]
+                with transaction.atomic():
+
+                    for index, row in dataset.iterrows():
+                        book = SkinCareCenter(
+                            name = row['name'], 
+                            website = row['website'],                      
+                            location = row['location'],
+                            contact = row['contact'],
+                            mail = row['mail'],
+                            opening_hour = row['opening_hour'],
+                            description = row['description'],                           
+                            image = row['image']
+                        )
+                        new_book_list.append(book)
+                SkinCareCenter.objects.bulk_create(new_book_list)
+                return redirect('/book/page/1')
+
+        except Exception as e:
+            print(e)
+            error_messages['error'] = e
+
+    return render(request, 'upload_dataset.html',{'form' : file_form,
+                                    'error_messages': error_messages})
