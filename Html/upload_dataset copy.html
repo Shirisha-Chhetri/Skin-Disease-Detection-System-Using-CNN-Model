@@ -1,8 +1,0 @@
-{% if error_messages %}
-    {{error_messages.error}}
-{% endif %} 
-<form enctype="multipart/form-data" action="/uploaddataset/" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }} 
-    <input type="submit" value="submit">
-</form> 

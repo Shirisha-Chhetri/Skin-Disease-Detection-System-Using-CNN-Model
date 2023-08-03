@@ -36,7 +36,7 @@
   </div>
 
 
-  <div class="container-fluid mt-2 centers" >
+  <div class="container-fluid mt-4 centers" >
     <div class="row">
       <p class="assistance">Upload the affected part of your skin and we will predict the disease !!!</p>
       <form  method="POST" enctype="multipart/form-data" class="mt-3 mb-4">
@@ -44,7 +44,13 @@
         <input type="file" name="affectedphoto" accept="image/*" required id="formFile">     
         <button type="submit" class="uploadImage">Upload Image</button>   
       </form>
-    <p class="prediction mx-auto">The predicted skin disease as per uploaded image is <strong>{{prediction.0}}</strong> with confidence <strong>{{prediction.1}}%.</strong></p>
+      {% if user.is_authenticated %}
+        <p class="prediction mx-auto">The predicted skin disease as per uploaded image is <strong>{{prediction.0}}</strong> with confidence <strong>{{prediction.1}}%.</strong></p>
+      {% else %}
+        <div class="alert alert-warning mx-auto" style="color: black;" role="alert"> 
+            Please Login and upload image to get Prediction...
+        </div>    
+      {% endif %}
     </div>
   </div>  
 

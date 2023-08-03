@@ -19,7 +19,7 @@ from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, UserUpl
 # home
 def home(request):
     prediction = None
-    disease = DiseaseDetail.objects.all().order_by('id')
+    disease = DiseaseDetail.objects.all().order_by('-id')
     carecenter= SkinCareCenter.objects.all().order_by('-id')
     if request.method == "POST" and request.FILES['affectedphoto']:
         addProfile = UserUpload(user= request.user, image= request.FILES['affectedphoto'])
