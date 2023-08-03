@@ -1,19 +1,14 @@
 import tensorflow as tf
-import matplotlib.pyplot as plt
-from PIL import Image
 import numpy as np
 
 BATCH_SIZE = 32
-IMAGE_SIZE1 = 256
-IMAGE_SIZE2 = 256
-CHANNELS=3
-EPOCHS=50
+IMAGE_SIZE = 256
 
 dataset = tf.keras.preprocessing.image_dataset_from_directory(
     "C:\\Users\\Admin\\Downloads\\project things\\Diseases\\Training",
     seed=123,
     shuffle=True,
-    image_size=(IMAGE_SIZE1,IMAGE_SIZE2),
+    image_size=(IMAGE_SIZE,IMAGE_SIZE),
     batch_size=BATCH_SIZE
 )
 
@@ -27,5 +22,4 @@ def predict(model, img):
 
     predicted_class = class_names[np.argmax(predictions[0])]
     confidence = round(100 * (np.max(predictions[0])), 2)
-    plt.imshow(img)
     return predicted_class, confidence

@@ -18,13 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from app import views
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.views import PasswordChangeView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('uploaddataset/',views.upload,name = "Upload dataset"),
     path('',views.home),
     path('about/',views.about),
     path('carecenters/',views.carecenters),
@@ -34,8 +32,6 @@ urlpatterns = [
     path('login/',views.loginuser, name='login'),
     path('logout/',views.logouts, name='logouts'),
    
-
-
     # for image and password of user
     path('profile/',views.change_password_profile, name='profile'),
     path('updateprofile/',views.addprofile),
@@ -48,6 +44,5 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name='registration/reset_confirm_4.html'),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(template_name='registration/reset_complete_5.html'),name='password_reset_complete'),
 ]
-
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

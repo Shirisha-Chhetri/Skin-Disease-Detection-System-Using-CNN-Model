@@ -45,13 +45,13 @@
 .image1{
   height: 20pc;
   width: 32pc;
-  margin:0pc 3pc 0pc 3pc;
+  margin:1pc 3pc 0pc 3pc;
 }
 .detail{
   height: auto;
   width: 32pc;
   margin-left: 10pc;
-  margin-top: 4pc;
+  margin-top: 3pc;
 }
 .button{
   background-color: #ebc4a1;
@@ -62,10 +62,13 @@
   height: 3pc;
 }
 .details{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
   text-align: justify;
-  color: black;
-
-}
+ }
 #formFile{
   padding: 0.375rem 0.75rem;
   background-color: #eae3dd;
@@ -73,12 +76,15 @@
   margin-left: 17pc;
 }
 .uploadImage{
-  background-color: #eda96c;
+  background-color: #efa765;
   margin-left: 2pc;
   height: 2.5pc;
   border: none;
   width: 7pc;
   border-radius: 2pc;
+}
+.prediction{
+  font-size: 23px;
 }
 
 
