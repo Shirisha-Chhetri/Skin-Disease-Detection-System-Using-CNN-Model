@@ -5,6 +5,7 @@ a:hover,a{
 .background{
     height: auto;
     width: 100%;
+    transform:rotate(24deg);
 }
 .container {
     padding: 2rem 0rem;
@@ -67,4 +68,11 @@ input{
     width: 21pc;
     border-radius: 2pc;
     margin-top: 2pc;
+}
+.reset-login{
+    color: black!important;
+    background-color: #ebc4a1;
+    display: block;
+    border-radius: 2pc;
+    height: 2pc;
 }

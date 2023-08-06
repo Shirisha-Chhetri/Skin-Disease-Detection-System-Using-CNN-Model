@@ -14,11 +14,14 @@
     object-fit: contain;
 }
 .description{
-    text-align: justify;
     font-size: 16px;
     padding: 1pc 1pc 0px 1pc;
-    height: 36ch;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
+    text-align: justify
 }
 .read_on{
     background-color: #ebc4a1;
@@ -37,7 +40,8 @@
     height: 6pc;
     width: 50%;
     display: block;
-    margin: 8pc auto 0px auto;
+    margin: 6pc auto 0px auto;
+    object-fit: none;
 }
 .contact_info{
     font-size: 17px;

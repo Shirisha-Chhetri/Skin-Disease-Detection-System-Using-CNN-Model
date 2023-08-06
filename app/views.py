@@ -19,22 +19,25 @@ from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, UserUpl
 # home
 def home(request):
     prediction = None
-    disease = DiseaseDetail.objects.all().order_by('-id')
-    carecenter= SkinCareCenter.objects.all().order_by('-id')
-    if request.method == "POST" and request.FILES['affectedphoto']:
-        addProfile = UserUpload(user= request.user, image= request.FILES['affectedphoto'])
-        addProfile.save()
-        imagePath = addProfile.image.url
-        fullImagePath = "C:/Users/Admin/Desktop/Files/Skin Disease Detection System/detection_system" + imagePath
+    disease = DiseaseDetail.objects.all().order_by('id')
+    carecenter= SkinCareCenter.objects.all().order_by('id')
+    if request.method == "POST" and request.FILES['affectedphoto']: 
+        if request.user.is_authenticated:
+            addProfile = UserUpload(user= request.user, image= request.FILES['affectedphoto'])
+            addProfile.save()
+            imagePath = addProfile.image.url
+            fullImagePath = "C:/Users/Admin/Desktop/Files/Skin Disease Detection System/detection_system" + imagePath
 
-        image = Image.open(fullImagePath)
-        resizedImage = image.resize((256, 256))
+            image = Image.open(fullImagePath)
+            resizedImage = image.resize((256, 256))
 
-        # Convert the image to a NumPy array
-        imageArray = np.array(resizedImage)
+            # Convert the image to a NumPy array
+            imageArray = np.array(resizedImage)
 
-        trainedModel = tf.keras.models.load_model('C:/Users/Admin/Documents/Model/model.h1', compile=False)
-        prediction = predict(trainedModel, imageArray)
+            trainedModel = tf.keras.models.load_model('C:/Users/Admin/Documents/Model/model.h3')
+            prediction = predict(trainedModel, imageArray)
+        else:
+            return redirect('/login')
     return render(request, 'home.html',
                   {'diseases':disease,
                    'carecenters': carecenter,
@@ -48,6 +51,9 @@ def carecenters(request):
     carecenter= SkinCareCenter.objects.all().order_by('id')
     return render(request,'carecenters.html', {'carecenters': carecenter})
 
+def header():
+    carecenter= DiseaseDetail.objects.all().order_by('id')
+    return render('header.html', {'name': carecenter})
 
 # specific center
 def specific_center(request,id):

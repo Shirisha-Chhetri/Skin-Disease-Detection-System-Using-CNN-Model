@@ -1,11 +1,12 @@
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 BATCH_SIZE = 32
 IMAGE_SIZE = 256
 
 dataset = tf.keras.preprocessing.image_dataset_from_directory(
-    "C:\\Users\\Admin\\Downloads\\project things\\Diseases\\Training",
+    "C:\\Users\\Admin\\Desktop\\skin_dataset",
     seed=123,
     shuffle=True,
     image_size=(IMAGE_SIZE,IMAGE_SIZE),

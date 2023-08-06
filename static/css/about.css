@@ -63,7 +63,7 @@
 }
 .alert{
   width: 29pc;
-  margin-left: 22pc;
+  margin-left:35pc;
   text-align: center;
 }
 .edit{
@@ -84,4 +84,8 @@
   }
 .dropdown:hover .drop-content {
   display: block;
+}
+.buttons{
+  background-color: #ebc4a1;
+  border-radius: 2pc;
 }

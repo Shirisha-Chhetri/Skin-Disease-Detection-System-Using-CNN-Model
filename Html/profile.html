@@ -51,8 +51,7 @@
             <form  method="POST" enctype="multipart/form-data" action="/updateprofile/">
               {% csrf_token %}
               <input type="file" name="profileimage" accept="image/*" required>           
-              <input type="submit" class="btn" value="Add profile"  style="background-color: #ebc4a1;"/>     
-                         
+              <input type="submit" class="btn buttons" value="Add profile"/>     
             </form>
           </div>
           </div>     
@@ -75,8 +74,7 @@
             <form  method="POST" enctype="multipart/form-data" action="/updateImage/">
               {% csrf_token %}
               <input type="file" name="updateimg" accept="image/*" required>           
-              <input type="submit" class="btn btn-info" value="Update profile"/>  
-                             
+              <input type="submit" class="btn buttons" value="Update profile"/>  
             </form>
           </div>
         </div>     
@@ -118,7 +116,8 @@
           
           <div class="modal-body">
             <div class="form-group">
-              <form  method="POST">
+              <form ethod="POST">
+                <p style="font-size: 13px; color: brown;">Password must be 8 characters long that doesn't match with the user name.</p>
                 {% csrf_token %}
 
                 {% if form.non_field_errors %}
@@ -134,7 +133,7 @@
                   </div><br>
                 {% endfor %}
                   
-                <input type="submit" id="submit" class="btn btn-info" value="Update" name="sub"/>                  
+                <input type="submit" id="submit" class="btn buttons" value="Update" name="sub"/>                  
               </form>
             </div>
           </div>     
