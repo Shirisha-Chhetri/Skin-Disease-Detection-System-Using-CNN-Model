@@ -5,9 +5,11 @@
   object-fit: fill;
 }
 .logos{
-  height: 4pc;
-    margin-left: 7pc;
-    object-fit: cover;
+  height: 8pc;
+  margin-left: 7pc;
+  object-fit: contain;
+  margin-bottom: 2pc;
+  width: 23pc;
 }
 .caretips{
   object-fit: cover;

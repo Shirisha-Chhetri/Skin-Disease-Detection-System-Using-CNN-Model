@@ -47,19 +47,15 @@
       </form>
     {% if user.is_authenticated %}
         <p class="prediction mx-auto">The predicted skin disease as per uploaded image is <strong>{{prediction.0}}</strong> with confidence <strong>{{prediction.1}}%.</strong></p>
-      {% else %}
-        <div class="alert alert-warning mx-auto" style="color: black;" role="alert"> 
-            Please upload image to get Prediction...
-        </div>    
     {% endif %}
     </div>
   </div>  
 
   <div class="container-fluid mt-2 centers">
     <div class="row">
-      <p class="assistance">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
+      <p class="assistance mb-5">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
       {% for carecenter in carecenters %}
-      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos mb-5 mt-5"/></a>
+      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos"/></a>
       {% endfor %}
     </div>
   </div>

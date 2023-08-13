@@ -28,11 +28,11 @@ def home(request):
 
             image = Image.open(fullImagePath)
             resizedImage = image.resize((256, 256))
-
+           
             # Convert the image to a NumPy array
             imageArray = np.array(resizedImage)
 
-            trainedModel = tf.keras.models.load_model('C:/Users/Admin/Documents/Model/model.h3')
+            trainedModel = tf.keras.models.load_model('C:/Users/Admin/Documents/Model/dataset_trained.h1')
             prediction = predict(trainedModel, imageArray)
         else:
             return redirect('/login')
@@ -48,10 +48,6 @@ def about(request):
 def carecenters(request):
     carecenter= SkinCareCenter.objects.all().order_by('id')
     return render(request,'carecenters.html', {'carecenters': carecenter})
-
-def header():
-    carecenter= DiseaseDetail.objects.all().order_by('id')
-    return render('header.html', {'name': carecenter})
 
 # specific center
 def specific_center(request,id):
