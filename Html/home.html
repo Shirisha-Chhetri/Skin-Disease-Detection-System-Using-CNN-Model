@@ -6,13 +6,8 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
   
-  <div class="row mt-3">
-      <img src="{% static 'image/skin1.jpg' %}" class="img"/>
-  </div>
-
-  <div class="row">
-    <p class="book">Know About Your Skin!!!</p>
-  </div>
+  <div class="row mt-3"><img src="{% static 'image/skin1.jpg' %}" class="img"/></div>
+  <div class="row"><p class="book">Know About Your Skin!!!</p></div>
 
   <div id="sec5">
     <div class="container-fluid">
@@ -34,7 +29,6 @@
       {% endfor %}
     </div>    
   </div>
-
 
   <div class="container-fluid mt-4 centers" >
     <div class="row">
@@ -60,8 +54,79 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="backg col-md-6">
+      <img src="{% static 'image/im.webp' %}" style="margin-left: -1pc; width: 43pc; height: 65pc; object-fit: cover;"/>
+    </div>
+    <div class="backg col-md-6">
+      <u><h2 class="mt-5" style="text-align: center; font-family: auto;">Tips for Managing Flare-Ups</h2></u>
+      <ol class="square mt-4">
+        <li>Keep a journal<p class="describe">Track your symptoms and triggers to help identify what's causing your flare-ups.</p></li>
+        <li>Avoid irritants<p class="describe">Avoid soaps, shampoos, and other products that may irritate your skin</p></li>
+        <li>Stress Management<p class="describe">Practice stress managementtechniques like yoga, meditation, or deep
+          breathing. Stress can exacerbate skin conditions.</p></li>
+        <li>Stay hydrated<p class="describe">Drinking plenty of water can help keep your skin hydrated and healthy.
+          Dehydration can worsen skin conditions.</p></li>
+        <li>Avoid scratching<p class="describe">Although it may be tempting, scratching can make your symptoms
+          worse and lead to infections.</p></li>
+        <li>Moisturize regularly<p class="describe">Use a gentle, fragrance-free moisturizer to keep your skin hydrated and
+          prevent dryness.</p></li>
+        <li>Wear comfortable clothing<p class="describe">Wear loose-fitting clothes made of soft, breathable fabrics like cotton to
+          avoid skin irritation.</p></li>
+        <li>Avoid hot showers and baths<p class="describe">Hot water can strip your skin ofits natural oils and make your skin dry
+          and itchy.</p></li>
+        <li>Use a humidifier<p class="describe">Using a humidifier can add moisture to the air and help prevent dry skin</p></li>
+      </ol>
+    </div>
+  </div>
 
-  <div class="container-fluid">
-    <img src="{% static 'image/caretips.jpg' %}" class="caretips"/>
-</div>
+  <div class="backg row">
+    <div style="width: 100%;"><p class="prevent">Preventing Skin Diseases</p></div>
+    <div class="col-md-6" id="wrapper_1" >
+      <img src="{% static 'image/male.jpg' %}" class="diet_image"/>
+      <h4 style="margin-left: 4pc;" class="my-3" >Prevention</h4>
+      <p style="margin-left: 4pc;">To prevent skin diseases, it's important to take care of your skin. Here are some tips:</p>
+      <ul style="margin-left: 4pc;">
+        <li>Wash your skin daily</li>
+        <li>Moisturize regularly</li>
+        <li>Use sunscreen</li>
+        <li>Wear protective clothing</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static 'image/diet.jpg' %}" class="diet_image"/>
+      <h4 style="margin-left: 4pc;" class="my-3">Diet and Nutrition</h4>
+      <p style="margin-left: 4pc;">Your diet can also play a role in preventing and managing skin diseases. Here are some tips:</p>
+      <ul style="margin-left: 4pc;">
+        <li>Eat a healthy, balanced diet high in antioxidants</li>
+        <li>Limitfoods that can trigger flare-ups, such as dairy, caffeine, and alcohol</li>
+        <li>Consult with a dermatologist about supplements</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row backg">
+    <div style="width: 100%;"><p class="prevent">When to see a Dermatologist</p></div>
+    <div class="col-md-4" >
+      <img src="{% static 'image/der.jpg' %}" class="diet_image" style="width: 86% !important;"/>
+      <h4 style="margin-left: 4pc;" class="my-3" >Unexplained Rash</h4>
+      <p style="margin-left: 4pc; text-align: justify;">If you experience a rash that does not resolve on its own within a week, or have a rash
+        with other concerning symptoms, seek medical attention. Adermatologist can help diagnose the cause of your
+        rash and provide appropriate treatment.</p>
+    </div>
+    <div class="col-md-4" >
+      <img src="{% static 'image/eye.jpg' %}" class="diet_image" style="width: 86% !important;"/>
+      <h4 style="margin-left: 4pc;" class="my-3" >Mole Check</h4>
+      <p style="margin-left: 4pc; text-align: justify;">Regular skin checks with a dermatologist can help detect
+        early signs of skin cancer. If you notice changes in the size, color, or shape of a mole, or if you have
+        schedule an appointment with a dermatologist.</p>
+    </div>
+    <div class="col-md-4" >
+      <img src="{% static 'image/chronic.jpg' %}" class="diet_image" style="width: 86% !important;"/>
+      <h4 style="margin-left: 4pc;" class="my-3" >Chronic Skin Condition</h4>
+      <p style="margin-left: 4pc; text-align: justify;">If you have a chronic skin condition, such as eczema,
+        psoriasis, or acne, a dermatologist can help you manage the condition and reduce symptoms. They can also
+        provide recommendations for lifestyle changes and prescribe appropriate medications.</p>
+    </div>
+  </div>
 {% endblock %}

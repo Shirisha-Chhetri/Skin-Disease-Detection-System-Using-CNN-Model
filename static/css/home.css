@@ -287,3 +287,60 @@ color: blue;
 .card-body a{
  color: black;
 }
+
+/* tips */
+ol.square {
+  list-style: none;
+  counter-reset: item;
+}
+ol.square > li{
+  counter-increment: item;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 500;
+}
+ol.square > li:before {
+  margin-right: 24px;
+  content: counter(item);
+  background: white;
+  font-size: 18px;
+  color: black;
+  width: 1.3em;
+  text-align: center;
+  display: inline-block;
+  border-radius: 6px;
+}
+.describe{
+  margin-left: 3pc;
+  font-size: 17px;
+  margin-top: 1pc;
+  font-weight: normal;
+}
+#wrapper_1:after {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  width: 2px;
+  height: 33pc;
+  top: 1px;
+  left: 97%;
+  display: block;
+}
+.diet_image{
+  margin-left: 4pc;
+  width: 66%;
+  height: 20pc; 
+  object-fit: cover;
+}
+.prevent{
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: cursive;
+  text-align: center;
+  margin-top: 2pc;
+  margin-bottom: 2pc;
+}
+.backg{
+  background-color: #ebc4a1; 
+  margin-top: 1pc;
+}
