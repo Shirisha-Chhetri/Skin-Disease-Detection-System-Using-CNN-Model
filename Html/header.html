@@ -39,15 +39,8 @@
 
           <div class="col-md-4">
             <div id="mySidenav">
-              <a href="../../about">About</a>
-              <a href="../../carecenters">Care Centers</a>
-              <!-- <a class="disease_drop">Disease Details</a>
-              <div class="dropdown-contents">
-              <a href="../diseaseinfo/disease/1">Ezchema</a> 
-              <a href="../diseaseinfo/disease/2">Melanoma</a>
-              <a href="../diseaseinfo/disease/3">Psoriasis</a> 
-              <a href="../diseaseinfo/disease/4">Basal Cell Carcinoma</a>                    
-            </div> -->
+              <a href="http://127.0.0.1:8000/about/">About</a>
+              <a href="http://127.0.0.1:8000/carecenters/">Care Centers</a>
             </div>
           </div>  
 
@@ -84,7 +77,7 @@
             {% else %} 
               <ul class="log">                 
                 <li>
-                <a href="../../login"><u>Wanna login?</u></a></li>
+                <a href="http://127.0.0.1:8000/login/"><u>Wanna login?</u></a></li>
              </ul>
             {% endif %} 
           </div> 
@@ -92,14 +85,6 @@
       </div> 
     </nav> 
   </header>
-
-    <!-- <div id ="sec2">
-      <div id="mySidenav" class="sidenav">
-        <a href="../../" id="home">Home&nbsp;&nbsp;<i class="fa fa-home fa-sm"></i></a>
-        <a href="../../about" id="about">About&nbsp;&nbsp;&nbsp;<i class="fa fa-info fa-sm"></i></a>
-        <a href="../../book" id="book">Book&nbsp;&nbsp;&nbsp;<i class="fa fa-book fa-sm "></i></a>
-      </div>
-    </div> -->
 
   <div class="container-fluid">
     {% block content %}

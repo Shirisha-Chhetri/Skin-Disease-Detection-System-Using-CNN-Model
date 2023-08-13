@@ -4,45 +4,8 @@
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
-
-    <!-- <div class="row">
-    <div class="col-md-6">
-        <img src="{% static 'image/login.svg' %}"> 
-    </div>
-
-    <div class="col-md-6">
-        <h2 class="mt-5"> Login</h2>
-        <form class="form needs-validation" method="POST" action="/login/" name="fill" novalidate>     
-                     
-            {% csrf_token %}
-            
-            {% if messages %}
-                {% for message in messages%}
-                <div class="alert alert-danger" role="alert"> 
-                    {{message}}
-                </div>
-                {% endfor %}
-            {% endif %}
-
-             <div class="form-group"> 
-            <input type="text" class="provideinput" id="tags" placeholder="Your username..." name="username" onkeyup="RemoveSpecialChar(this)" required>
-            <div class="invalid-feedback">
-                Please Enter Valid Username
-              </div>
-            </div> <div class="form-group">  
-            <input type="password" class="provideinput" id="password" placeholder="Your password..." name="password" required>
-            <i class="fa fa-eye" id="togglePassword"></i>
-            <div class="invalid-feedback">
-                Please Enter Password
-              </div>
-            </div>
-            <input type="submit" class="btn btn-info btn-block btn-round mt-4" value="Login"/>
-        </form>
-    </div> -->
-
-
         
-      <div>
+    <div>
         <img src="{% static 'image/login.svg' %}" class="background">
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false"> 
        
@@ -84,7 +47,7 @@
                 </div>
                 <div class="form-group">
                 <input type="password" class="form-control" style="border-radius: 2pc !important; border: 3px solid #ebc4a1 !important;
-                margin-left: 2pc; margin-top: 1pc; width: 83%;"  placeholder="Your password..." name="password" required>
+                margin-left: 2pc; margin-top: 1pc; width: 83%;"  placeholder="Your password..." name="password" id="password" required>
                 <i class="fa fa-eye" id="togglePassword"></i>
                 <div class="invalid-feedback">
                     Please Enter Password
