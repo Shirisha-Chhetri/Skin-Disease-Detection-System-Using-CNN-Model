@@ -12,18 +12,51 @@ import numpy as np
 from PIL import Image
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Profile, DiseaseDetail, SkinCareCenter,DiseaseImage, UserUpload
+from cryptography.fernet import Fernet
 
+def encrypt(filename, key):
+    f = Fernet(key)
+    with open(filename, "rb") as file:
+        file_data = file.read()
+    encrypted_data = f.encrypt(file_data)
+    with open(filename, "wb") as file:
+        file.write(encrypted_data)
+
+def decrypt(filename, key):
+    # Given a filename (str) and key (bytes), it decrypts the file and write it
+    f = Fernet(key)
+    with open(filename, "rb") as file:
+        # read the encrypted data
+        encrypted_data = file.read()
+    # decrypt data
+    decrypted_data = f.decrypt(encrypted_data)
+    # write the original file
+    with open(filename, "wb") as file:
+        file.write(decrypted_data)
+   
+
+def load_key():
+    return open("key.key", "rb").read()
+
+key = load_key()
 
 # home
 def home(request):
-    prediction = None
+    prediction = image = None
     disease = DiseaseDetail.objects.all().order_by('id')
     carecenter= SkinCareCenter.objects.all().order_by('id')
     if request.method == "POST" and request.FILES['affectedphoto']: 
         if request.user.is_authenticated:
-            addProfile = UserUpload(user= request.user, image= request.FILES['affectedphoto'])
+            image = request.FILES['affectedphoto'].name
+            f = Fernet(key)
+            encrypted = f.encrypt(image.encode())
+            print(encrypted)
+            addProfile = UserUpload(user= request.user, image= encrypted)
             addProfile.save()
             imagePath = addProfile.image.url
+           
+            # encrypt(imagePath.strip('/'),key)
+            # decrypted = decrypt_and_decode(imagePath.strip('/'), key, 'utf-8')
             fullImagePath = "C:/Users/Admin/Desktop/Files/Skin Disease Detection System/detection_system" + imagePath
 
             image = Image.open(fullImagePath)
@@ -32,14 +65,15 @@ def home(request):
             # Convert the image to a NumPy array
             imageArray = np.array(resizedImage)
 
-            trainedModel = tf.keras.models.load_model('C:/Users/Admin/Documents/Model/dataset_trained.h1')
+            trainedModel = tf.keras.models.load_model('C:/Users/Admin/Documents/Model/trained.h1')
             prediction = predict(trainedModel, imageArray)
         else:
             return redirect('/login')
     return render(request, 'home.html',
                   {'diseases':disease,
                    'carecenters': carecenter,
-                   'prediction' : prediction})
+                   'prediction' : prediction,
+                   'image': image})
 
 # about
 def about(request):

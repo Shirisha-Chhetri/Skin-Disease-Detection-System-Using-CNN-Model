@@ -23,10 +23,6 @@ a:hover,a{
 margin-top: -1.5rem;
 }
 
-/* .form-title {
-margin: 11rem 0rem 2rem;
-} */
-
 .btn-round {
 border-radius: 3rem !important;
 }
@@ -58,12 +54,6 @@ input{
     color: #e4944c !important;
 }
 
-
-
-
-/* .log{
-    margin-top: 10pc;
-} */
 .tags{
     width: 21pc;
     border-radius: 2pc;

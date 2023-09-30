@@ -32,13 +32,13 @@ urlpatterns = [
     path('login/',views.loginuser, name='login'),
     path('logout/',views.logouts, name='logouts'),
    
-    # for image and password of user
+    #for image and password of user
     path('profile/',views.change_password_profile, name='profile'),
     path('updateprofile/',views.addprofile),
     path('updateImage/',views.updateImage),
     path('deleteimage/',views.deleteimage),
 
-     # To reset password
+    #To reset password
     path('password_reset/',auth_views.PasswordResetView.as_view(template_name='registration/reset_form_1.html'),name='password_reset'),
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(template_name='registration/reset_done_3.html'),name='password_reset_done'),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name='registration/reset_confirm_4.html'),name='password_reset_confirm'),

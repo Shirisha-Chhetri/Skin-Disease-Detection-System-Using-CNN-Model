@@ -5,42 +5,20 @@
 }
 .para{
 	text-align: justify;
-  /* margin-top: 3pc; */
 }
-
 .separator{
   text-align: center;
-  /* background-color: #ebc4a1; */
   height: 4pc;
   width: 100%;
 }
 
-/* wishlist */
-.genrename{
-  font-size:2pc;
-  text-align: center;
-}
-.image{
-  height:8pc;
-  margin-top: 1pc;
-  width: 6pc;
-  margin-left:1pc;
-}
+/* profile.html */
 .add{
   background-color: #ebc4a1;;
   padding: 0.375rem 0.75rem;
   border-radius: 2pc;
   color: black !important;
 }
-.card-body {
-  margin-top: -8.5pc;
-  margin-left: 8pc;
-}
-.btnclass{
-  margin-left: 13pc;
-}
-
-/* profile.html */
 .list-group{
   font-size:18px;
 }

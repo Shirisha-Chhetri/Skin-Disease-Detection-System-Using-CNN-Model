@@ -1,8 +1,7 @@
 from django.contrib import admin
 from .models import Profile, DiseaseDetail, SkinCareCenter, DiseaseImage, UserUpload
 
-# Register your models here.
-
+# Register models here.
 class ImageAdmin(admin.StackedInline):
     model = DiseaseImage
  

@@ -30,29 +30,26 @@
     </div>    
   </div>
 
-  <div class="container-fluid mt-4 centers" >
+  <div class="container-fluid mt-4 centers" id="upload" >
     <div class="row">
       <p class="assistance">Upload the affected part of your skin and we will predict the disease !!!</p>
-      <form  method="POST" enctype="multipart/form-data" class="mt-3 mb-4">
+      <form method="POST" enctype="multipart/form-data" class="mt-3 mb-4">
         {% csrf_token %}
         <label for="image"></label>
         <input type="file" name="affectedphoto" accept="image/*" required id="formFile">     
         <button type="submit" class="uploadImage">Upload Image</button>   
       </form>
     {% if user.is_authenticated %}
+      {% if image %}
         <p class="prediction mx-auto">The predicted skin disease as per uploaded image is <strong>{{prediction.0}}</strong> with confidence <strong>{{prediction.1}}%.</strong></p>
+      {% endif %}  
+    {% else %} 
+      <div class="alert alert-info" style="margin-left: 28pc; height: 3pc;">
+        <span>Please Login and upload the image of affected body parts to get predictions...</span>
+      </div>
     {% endif %}
     </div>
   </div>  
-
-  <div class="container-fluid mt-2 centers">
-    <div class="row">
-      <p class="assistance mb-5">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
-      {% for carecenter in carecenters %}
-      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos"/></a>
-      {% endfor %}
-    </div>
-  </div>
 
   <div class="row">
     <div class="backg col-md-6">
@@ -77,6 +74,16 @@
           and itchy.</p></li>
         <li>Use a humidifier<p class="describe">Using a humidifier can add moisture to the air and help prevent dry skin</p></li>
       </ol>
+    </div>
+  </div>
+
+  
+  <div class="container-fluid mt-2 centers">
+    <div class="row">
+      <p class="assistance mb-5">Need Some Assistance? Why Don't You View Some Skin Care Centers !!!</p>
+      {% for carecenter in carecenters %}
+      <a href="carecenters/"><img src="{{carecenter.image}}" class="logos"/></a>
+      {% endfor %}
     </div>
   </div>
 

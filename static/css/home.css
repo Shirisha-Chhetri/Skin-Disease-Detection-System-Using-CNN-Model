@@ -1,15 +1,14 @@
 .img{
-  height: 60pc;
+  height: 50pc;
   width: 100%;
-  margin-top: 2.5pc;
-  object-fit: fill;
+  object-fit: cover;
 }
 .logos{
-  height: 8pc;
-  margin-left: 7pc;
+  height: 4.5pc;
+  margin-left: 2pc;
   object-fit: contain;
   margin-bottom: 2pc;
-  width: 23pc;
+  width: 29pc;
 }
 .caretips{
   object-fit: cover;
@@ -35,15 +34,7 @@
   margin-left: 17pc;
   margin-top: 2pc;
 }
-.book{
-  font-size: 35px;
-  /* align-content: center;
-  text-align: center; */
-  font-weight: bold;
-  margin-left:35pc;
-  margin-top: 2pc;
 
-}
 .image1{
   height: 20pc;
   width: 32pc;
@@ -82,17 +73,12 @@
   margin-left: 2pc;
   height: 2.5pc;
   border: none;
-  width: 7pc;
+  padding: 8px;
   border-radius: 2pc;
 }
 .prediction{
   font-size: 23px;
 }
-
-
-
-
-
 
 /*sec3  home.html*/
 input{
@@ -106,7 +92,6 @@ input{
   font-size: 20px !important;
   margin-left: -1pc;
 }
-
 
 .button a{
   color: black;
@@ -158,189 +143,4 @@ input{
 }
 .drop a:hover{
 color: blue;
-}
-
-
-/* book.html */
-.bookimage{
-  width: 11.5pc;
-  height:15pc;
-  margin-left:-5px;
-  margin-bottom: 8px;
-}
-.quote{
-  margin-top: 4pc;
-  font-family: Cursive;
-  font-style: italic;
-  font-size: 26px;
-  text-align: center;
-  color: #8774cc;
-}
-
-
-/* specific_book */
-#bookdetail{
-  background-color:#eeeaf3;
-  height:auto;
-  margin-left: 0.5pc;
-  width: 73pc;
-}
-#bookdetail a{
-  color: black;
-  border: none;
-}
-.specificimg{
-  height: 25pc;
-  width: 30pc;
-  margin-left:6pc;
-}
-.describe{
-  margin-left:7pc;
-  text-align: justify;
-  margin-right: 3pc;
-}
-.title{
-  font-size: 16px;
-}
-.form{
-  margin-top: 6pc;
-  margin-left: 5pc;
-}
-.buy,.wish{
-  background-color:#8774cc;
-}
-.buy{
-  margin-left: 16pc !important;
-  margin-top: -4.5pc !important;
-}
-
-
-/* booksongenre */
-.con{
-  height: 13pc;
-  margin-bottom: 8px;
-}
-.booky{
-  width: 10.5pc;
-  height:13pc;
-  margin-left:4.5px;                     
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  transform: translate(105%,-120%);         
-  width:9.5pc;
-  height:10pc;
-  margin-left: -9.5pc;
-  z-index: 2;
-}
-.con:hover .booky{
-  opacity: 0.2;
-}
-.con:hover .middle{
-  opacity: 1;
-}
-.anchor{
-  color: black;
-}
-.anchor:hover{
-  color: black;
-}
-
-/* allgenre.html */
-#tag{
-  width: 20pc !important;
-  margin-left: 39pc;
-  margin-top: -4pc;
-  text-indent:1.5pc;
-}
-.search1{
-  position: absolute;
-  margin-left: 39.5pc;
-  margin-top: -4pc;
-  color: burlywood;
-}
-.all{
-  font-size:2pc;
-  margin-left:11pc;
-}
-
-/* search.html */
-.genrename{
-  font-size:2pc;
-  text-align: center;
-  font-style: oblique;
-  font-family: 'Poppins'
-}
-.card {
-  flex-direction: row;
-  margin-left:22pc;
-}
-.image{
-  height:8pc;
-  margin-top: 1pc;
-  margin-left: 1pc;
-  width: 6pc;
-}
-.card-body a{
- color: black;
-}
-
-/* tips */
-ol.square {
-  list-style: none;
-  counter-reset: item;
-}
-ol.square > li{
-  counter-increment: item;
-  margin-bottom: 5px;
-  font-size: 20px;
-  font-weight: 500;
-}
-ol.square > li:before {
-  margin-right: 24px;
-  content: counter(item);
-  background: white;
-  font-size: 18px;
-  color: black;
-  width: 1.3em;
-  text-align: center;
-  display: inline-block;
-  border-radius: 6px;
-}
-.describe{
-  margin-left: 3pc;
-  font-size: 17px;
-  margin-top: 1pc;
-  font-weight: normal;
-}
-#wrapper_1:after {
-  content: "";
-  background-color: #000;
-  position: absolute;
-  width: 2px;
-  height: 33pc;
-  top: 1px;
-  left: 97%;
-  display: block;
-}
-.diet_image{
-  margin-left: 4pc;
-  width: 66%;
-  height: 20pc; 
-  object-fit: cover;
-}
-.prevent{
-  font-size: 2rem;
-  font-weight: 400;
-  font-family: cursive;
-  text-align: center;
-  margin-top: 2pc;
-  margin-bottom: 2pc;
-}
-.backg{
-  background-color: #ebc4a1; 
-  margin-top: 1pc;
 }
